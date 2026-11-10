@@ -1,9 +1,10 @@
-config.php
-
+moodledata/
 cache/
 localcache/
 temp/
-sessions/
 trashdir/
 
+config.php
+
 *.log
+*.zip

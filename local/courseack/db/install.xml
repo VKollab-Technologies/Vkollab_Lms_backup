@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/courseack/db"
+       VERSION="2026111001"
+       COMMENT="Course acknowledgement table">
+
+    <TABLES>
+
+        <TABLE NAME="course_acknowledgements"
+               COMMENT="Stores learner acknowledgements">
+
+            <FIELDS>
+
+                <FIELD NAME="id"
+                       TYPE="int"
+                       LENGTH="10"
+                       NOTNULL="true"
+                       SEQUENCE="true"/>
+
+                <FIELD NAME="userid"
+                       TYPE="int"
+                       LENGTH="10"
+                       NOTNULL="true"/>
+
+                <FIELD NAME="courseid"
+                       TYPE="int"
+                       LENGTH="10"
+                       NOTNULL="true"/>
+
+                <FIELD NAME="acknowledged"
+                       TYPE="int"
+                       LENGTH="1"
+                       NOTNULL="true"
+                       DEFAULT="0"/>
+
+                <FIELD NAME="timecreated"
+                       TYPE="int"
+                       LENGTH="10"
+                       NOTNULL="true"/>
+
+            </FIELDS>
+
+            <KEYS>
+
+                <KEY NAME="primary"
+                     TYPE="primary"
+                     FIELDS="id"/>
+
+            </KEYS>
+
+        </TABLE>
+
+    </TABLES>
+
+</XMLDB>

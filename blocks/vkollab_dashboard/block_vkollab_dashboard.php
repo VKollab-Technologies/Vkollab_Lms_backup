@@ -116,14 +116,14 @@ if (($completedtrainings + $pendingtrainings) > 0) {
             $this->content->text = '
 
             <div style="
-background:linear-gradient(90deg,#005A9C,#0078D4);
+background:linear-gradient(90deg,#003B6F,#005A9C);
 color:white;
 padding:20px;
 border-radius:12px;
 margin-bottom:20px;
 box-shadow:0 4px 12px rgba(0,0,0,.15);">
 
-<h2 style="margin:0;">
+<h2 style="margin:0; color:#ffffff !important;">
 Team Learning & Compliance Dashboard
 </h2>
 
@@ -233,7 +233,7 @@ margin-top:10px;
 font-size:42px;
 font-weight:700;
 color:#003B6F;">
-'.$teamcompletion.'
+'.$teamcompletion.'%
 </h1>
                 </div>
 
@@ -252,7 +252,7 @@ margin-top:20px;">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📈 Team Progress
+Team Progress
 </h3>
 
 <div style="
@@ -299,7 +299,7 @@ margin-top:20px;">
 
 <h3 style="
 color:#003B6F;">
-📋 Team Learning Summary
+Team Learning Summary
 </h3>
 
 <ul style="
@@ -329,15 +329,15 @@ margin-top:20px;">
 
 <h3 style="
 color:#003B6F;">
-📊 Team Status Overview
+Team Status Overview
 </h3>
 
 <p>
-✅ Completed Trainings : '.$completedtrainings.'
+Completed Trainings : '.$completedtrainings.'
 </p>
 
 <p>
-⏳ Pending Trainings : '.$pendingtrainings.'
+Pending Trainings : '.$pendingtrainings.'
 </p>
 
 </div>';
@@ -354,7 +354,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-👥 Team Learning Progress
+ Team Learning Progress
 </h3>
 
 <table style="
@@ -439,7 +439,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-⚠️ Overdue Training Tracker
+Overdue Training Tracker
 </h3>
 
 <table style="
@@ -541,7 +541,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-🏆 Certificates Summary
+Certificates Summary
 </h3>
 
 <table style="
@@ -673,7 +673,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📊 Assessment Analytics
+Assessment Analytics
 </h3>
 
 <div style="
@@ -737,7 +737,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📈 Team Learning Trend
+Team Learning Trend
 </h3>
 
 <table style="
@@ -771,7 +771,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📄 Reports
+Reports
 </h3>
 
 <div style="
@@ -784,7 +784,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #005A9C;
 border-radius:8px;">
-📊 Team Completion Report
+Team Completion Report
 </div>
 
 <div style="
@@ -792,7 +792,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #107C10;
 border-radius:8px;">
-⚠️ Overdue Training Report
+ Overdue Training Report
 </div>
 
 <div style="
@@ -800,7 +800,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #0078D4;
 border-radius:8px;">
-📝 Assessment Report
+Assessment Report
 </div>
 
 <div style="
@@ -808,7 +808,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #D83B01;
 border-radius:8px;">
-🏆 Certificate Report
+Certificate Report
 </div>
 
 <div style="
@@ -816,7 +816,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #6A1B9A;
 border-radius:8px;">
-👥 Learner Progress Report
+ Learner Progress Report
 </div>
 
 </div>
@@ -907,13 +907,15 @@ if (!empty($learnerids)) {
     margin-bottom:20px;
     box-shadow:0 4px 12px rgba(0,0,0,.15);">
 
-    <h2 style="margin:0;">
+    <h2 style="margin:0;
+     color:#ffffff !important;">
     Practice Learning Dashboard
     </h2>
 
     <p style="
     margin-top:8px;
-    opacity:.9;">
+    color:#ffffff !important;
+    opacity:0.9;">
     Monitor learning engagement and training progress.
     </p>
 
@@ -1010,7 +1012,7 @@ if (!empty($learnerids)) {
 
     <h3 style="
     color:#003B6F;">
-    📈 Practice Progress
+     Practice Progress
     </h3>
 
     <div style="
@@ -1053,7 +1055,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📋 Practice Learning Summary
+ Practice Learning Summary
 </h3>
 
 <div style="
@@ -1109,7 +1111,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-👥 Employee Learning Progress
+Employee Learning Progress
 </h3>
 
 <table style="
@@ -1221,7 +1223,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📊 Employee Performance
+ Employee Performance
 </h3>
 
 '.$employeeperformance.'
@@ -1243,7 +1245,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📚 Course Analytics
+Course Analytics
 </h3>
 
 <table style="
@@ -1342,7 +1344,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-🏆 Certificates Summary
+Certificates Summary
 </h3>
 
 <table style="
@@ -1401,7 +1403,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-⚠️ Overdue Training Tracker
+Overdue Training Tracker
 </h3>
 
 <table style="
@@ -1583,7 +1585,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📊 Assessment Analytics
+Assessment Analytics
 </h3>
 
 <div style="
@@ -1652,7 +1654,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📈 Learning Trend
+ Learning Trend
 </h3>
 
 <table style="
@@ -1686,7 +1688,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📚 My Courses
+My Courses
 </h3>
 
 <table style="
@@ -1739,7 +1741,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-⚡ Quick Actions
+Quick Actions
 </h3>
 
 <div style="
@@ -1748,27 +1750,27 @@ grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
 gap:12px;">
 
 <div style="background:#F8FAFC;padding:15px;border-radius:8px;">
-➕ Create Course
+ Create Course
 </div>
 
 <div style="background:#F8FAFC;padding:15px;border-radius:8px;">
-✏ Edit Course
+Edit Course
 </div>
 
 <div style="background:#F8FAFC;padding:15px;border-radius:8px;">
-📄 Create Quiz
+ Create Quiz
 </div>
 
 <div style="background:#F8FAFC;padding:15px;border-radius:8px;">
-📹 Upload Content
+ Upload Content
 </div>
 
 <div style="background:#F8FAFC;padding:15px;border-radius:8px;">
-📚 Manage Learning Paths
+Manage Learning Paths
 </div>
 
 <div style="background:#F8FAFC;padding:15px;border-radius:8px;">
-📤 Submit For Approval
+Submit For Approval
 </div>
 
 </div>
@@ -1788,7 +1790,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📄 Reports
+Reports
 </h3>
 
 <div style="
@@ -1801,7 +1803,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #005A9C;
 border-radius:8px;">
-📊 Employee Progress Report
+Employee Progress Report
 </div>
 
 <div style="
@@ -1809,7 +1811,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #107C10;
 border-radius:8px;">
-✅ Course Completion Report
+Course Completion Report
 </div>
 
 <div style="
@@ -1817,7 +1819,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #0078D4;
 border-radius:8px;">
-📝 Assessment Report
+Assessment Report
 </div>
 
 <div style="
@@ -1825,7 +1827,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #D83B01;
 border-radius:8px;">
-🏆 Certificate Report
+Certificate Report
 </div>
 
 <div style="
@@ -1833,7 +1835,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #C50F1F;
 border-radius:8px;">
-⚠️ Overdue Training Report
+Overdue Training Report
 </div>
 
 <div style="
@@ -1841,7 +1843,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #44546A;
 border-radius:8px;">
-📈 Practice Analytics Report
+Practice Analytics Report
 </div>
 
 </div>
@@ -1905,6 +1907,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.15);">
 
 <h2 style="
 margin:0;
+color:#ffffff !important;
 font-size:30px;
 font-weight:700;">
 VKollab Executive Dashboard
@@ -2107,7 +2110,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📊 Practice Performance Comparison
+Practice Performance Comparison
 </h3>';
 
 $practices = $DB->get_records_sql("
@@ -2210,7 +2213,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📈 Organization Learning Trend
+Organization Learning Trend
 </h3>
 
 <table style="
@@ -2243,7 +2246,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-🏆 Top Performing Practices
+ Top Performing Practices
 </h3>
 
 <table style="
@@ -2358,7 +2361,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📄 Executive Reports
+ Executive Reports
 </h3>
 
 <div style="
@@ -2371,7 +2374,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #005A9C;
 border-radius:8px;">
-📊 Organization Learning Report
+ Organization Learning Report
 </div>
 
 <div style="
@@ -2379,7 +2382,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #107C10;
 border-radius:8px;">
-📈 Practice Performance Report
+ Practice Performance Report
 </div>
 
 <div style="
@@ -2387,7 +2390,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #0078D4;
 border-radius:8px;">
-📝 Assessment Report
+ Assessment Report
 </div>
 
 <div style="
@@ -2395,7 +2398,7 @@ background:#F8FAFC;
 padding:15px;
 border-left:4px solid #D83B01;
 border-radius:8px;">
-🏆 Certificate Report
+ Certificate Report
 </div>
 
 </div>
@@ -2418,7 +2421,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📊 Practice-wise Analytics
+ Practice-wise Analytics
 </h3>
 
 <table style="
@@ -2523,7 +2526,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-🏆 Certification Analytics
+ Certification Analytics
 </h3>
 
 <table style="
@@ -2599,7 +2602,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#C50F1F;
 margin-bottom:15px;">
-⚠️ Low Performing Practices
+ Low Performing Practices
 </h3>
 
 <table style="
@@ -2776,7 +2779,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📊 Assessment Analytics
+ Assessment Analytics
 </h3>
 
 <div style="
@@ -2853,7 +2856,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#C50F1F;
 margin-bottom:15px;">
-⚠️ Organization Overdue Trainings
+ Organization Overdue Trainings
 </h3>
 
 <table style="
@@ -3137,7 +3140,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📚 Course Repository
+Course Repository
 </h3>
 
 <table style="
@@ -3261,7 +3264,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📋 Approval Queue
+Approval Queue
 </h3>
 
 <table style="
@@ -3295,7 +3298,7 @@ foreach ($pendingcourses as $course) {
         </td>
 
         <td>
-            ⏳ Pending Approval
+             Pending Approval
         </td>
 
     </tr>';
@@ -3318,7 +3321,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📈 Content Effectiveness Analytics
+Content Effectiveness Analytics
 </h3>
 
 <table style="
@@ -3423,7 +3426,7 @@ border-radius:12px;
 margin-bottom:20px;
 box-shadow:0 4px 10px rgba(0,0,0,.12);">
 
-<h2 style="margin:0;">
+<h2 style="margin:0; color:#ffffff !important;">
 Welcome Back, '.$USER->firstname.'
 </h2>
 
@@ -3584,7 +3587,7 @@ margin-top:20px;">
 
 <h3 style="
 color:#003B6F;">
-📖 Learning Summary
+Learning Summary
 </h3>
 
 <ul style="
@@ -3610,7 +3613,7 @@ box-shadow:0 4px 10px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-🏆 My Certificates
+My Certificates
 </h3>';
 if ($mycompleted > 0) {
 
@@ -3661,7 +3664,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📚 My Courses
+ My Courses
 </h3>
 
 <table style="
@@ -3738,7 +3741,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-⚠️ Upcoming & Overdue Training
+Upcoming & Overdue Training
 </h3>
 
 <table style="
@@ -3876,7 +3879,7 @@ box-shadow:0 4px 12px rgba(0,0,0,.08);">
 <h3 style="
 color:#003B6F;
 margin-bottom:15px;">
-📊 Assessment Analytics
+ Assessment Analytics
 </h3>
 
 <div style="
@@ -3979,7 +3982,8 @@ box-shadow:0 4px 12px rgba(0,0,0,.15);">
     <h2 style="
 margin:0;
 font-size:32px;
-font-weight:700;">
+font-weight:700;
+color:#ffffff !important;">
 VKollab LMS Administration
 </h2>
 

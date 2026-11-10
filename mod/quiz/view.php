@@ -53,6 +53,34 @@ require_login($course, false, $cm);
 $context = $quizobj->get_context();
 require_capability('mod/quiz:view', $context);
 
+// Course Acknowledgement Check.
+global $DB, $USER;
+
+// Skip for admins/teachers.
+if (!has_capability('mod/quiz:manage', $context)) {
+
+    $ackexists = $DB->record_exists(
+        'course_acknowledgements',
+        [
+            'userid' => $USER->id,
+            'courseid' => $course->id
+        ]
+    );
+
+    if (!$ackexists) {
+
+        redirect(
+            new moodle_url(
+                '/local/courseack/index.php',
+                [
+                    'courseid' => $course->id
+                ]
+            ),
+            'Please complete course acknowledgement first.'
+        );
+    }
+}
+
 // Cache some other capabilities we use several times.
 $canattempt = has_capability('mod/quiz:attempt', $context);
 $canreviewmine = has_capability('mod/quiz:reviewmyattempts', $context);
