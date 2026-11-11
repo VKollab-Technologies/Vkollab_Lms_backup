@@ -10,9 +10,10 @@ $courseid = optional_param('courseid', 0, PARAM_INT);
 $returnurl = optional_param(
     'returnurl',
     '',
-    PARAM_URL
+    PARAM_RAW
 );
 
+$returnurl = urldecode($returnurl);
 $message = '';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -25,8 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $returnurl = optional_param(
     'returnurl',
     '',
-    PARAM_URL
+    PARAM_RAW
 );
+
+$returnurl = urldecode($returnurl);
 
     $password = required_param('password', PARAM_RAW);
 
@@ -73,110 +76,226 @@ $returnurl = optional_param(
                 $record
             );
         }
-         echo '<pre>';
-         print_r($_REQUEST);
-         echo '</pre>';
-         die();
+        
         if (!empty($returnurl)) {
-
-    redirect(
-    new moodle_url($returnurl),
-    'Acknowledgement recorded successfully.',
-    2
-);
+echo '
+<script>
+window.parent.location.reload();
+</script>
+';
+exit;
 
 } else {
 
-    redirect(
-        new moodle_url(
-            '/course/view.php',
-            [
-                'id' => $courseid
-            ]
-        ),
-        'Acknowledgement recorded successfully.',
-        2
-    );
+    echo '
+<script>
+window.parent.location.reload();
+</script>
+';
+exit;
 }
 
     }
 }
-
+$course = get_course($courseid);
+$fullname = fullname($USER);
+$currenttime = date('d-M-Y h:i A');
 echo '
 
-<html>
+<style>
+body{
+    margin:0;
+    padding:10px;
+    font-family:Segoe UI, Arial, sans-serif;
+    background:transparent;
+}
 
-<head>
-<title>Course Acknowledgement</title>
-</head>
+.ack-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:650px;
+    padding-top:20px;
+}
 
-<body style="
-font-family:Arial;
-margin:50px;">
+.ack-card{
+    width:700px;
+    max-width:95%;
+    background:#ffffff;
+    border-radius:14px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.15);
+}
+.ack-header{
+    text-align:center;
+    margin-bottom:25px;
+}
+.ack-header h2{
+    color:#0f4c81;
+    margin:0;
+}
+
+.ack-header p{
+    color:#666;
+    margin-top:10px;
+}
+
+.user-box{
+    background:#f5f7fa;
+    padding:12px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.form-group{
+    margin-bottom:20px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:8px;
+    font-weight:600;
+}
+
+.form-control{
+    width:100%;
+    padding:12px;
+    border:1px solid #d0d7de;
+    border-radius:6px;
+}
+
+.acknowledge-box{
+    background:#f0f8ff;
+    border-left:5px solid #0f4c81;
+    padding:15px;
+    border-radius:6px;
+    margin-bottom:20px;
+}
+
+.submit-btn{
+    background:#0f4c81;
+    color:white;
+    border:none;
+    padding:12px 30px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.submit-btn:hover{
+    background:#09355b;
+}
+
+</style>
+
+<div class="ack-wrapper">
+<div class="ack-card">
+
+<div class="ack-header">
 
 <h2>Course Acknowledgement</h2>
+
+<p>Please review the information below and provide your electronic acknowledgement before proceeding with the assessment. This acknowledgement will be recorded for compliance and audit purposes.</p>
+
+</div>
 
 '.$message.'
 
 <form method="post">
-<input
-    type="hidden"
-    name="returnurl"
-    value="'.$returnurl.'">
+
+<input type="hidden" name="returnurl" value="'.$returnurl.'">
+
+<input type="hidden" name="courseid" value="'.$courseid.'">
+
+<div class="user-box">
+
+<div class="user-box">
+
+<div style="margin-bottom:8px;">
+<strong>Course:</strong>
+'.$course->fullname.'
+</div>
+
+<div style="margin-bottom:8px;">
+<strong>Learner Name:</strong>
+'.$fullname.'
+</div>
+
+<div style="margin-bottom:8px;">
+<strong>Username:</strong>
+'.$USER->username.'
+</div>
+
+<div>
+<strong>Date & Time:</strong>
+'.$currenttime.'
+</div>
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Password</label>
 
 <input
-    type="hidden"
-    name="courseid"
-    value="'.$courseid.'">
+class="form-control"
+type="password"
+name="password"
+placeholder="Enter your password"
+required>
 
-    <p>
+</div>
 
-        <label>Username</label>
+<div class="acknowledge-box">
 
-        <br>
+<div style="
+background:#fff3cd;
+color:#856404;
+padding:10px;
+border-radius:5px;
+font-weight:600;
+margin-bottom:12px;">
 
-        <input
-            type="text"
-            value="'.$USER->username.'"
-            readonly>
+Electronic Signature Required
 
-    </p>
+</div>
 
-    <p>
+<input
+type="checkbox"
+name="acknowledge"
+value="1"
+required>
 
-        <label>Password</label>
+I acknowledge that I have completed all required learning content in this course and understand the information presented. I understand that this acknowledgement serves as my electronic signature and will be recorded for training compliance and audit purposes.
 
-        <br>
+</div>
 
-        <input
-            type="password"
-            name="password"
-            required>
+<div style="text-align:center;">
 
-    </p>
+<button
+class="submit-btn"
+type="submit">
 
-    <p>
+Submit Acknowledgement
 
-        <input
-            type="checkbox"
-            name="acknowledge"
-            value="1"
-            required>
+</button>
 
-        I confirm that I have completed and understood the course content.
-
-    </p>
-
-    <p>
-
-        <input
-            type="submit"
-            value="Submit">
-
-    </p>
+</div>
 
 </form>
 
-</body>
+</div>
+</div>
+<script>
 
-</html>';
+history.pushState(null, null, location.href);
+
+window.onpopstate = function () {
+    history.go(1);
+};
+
+</script>
+
+';

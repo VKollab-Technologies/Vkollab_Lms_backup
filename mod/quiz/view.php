@@ -55,7 +55,7 @@ require_capability('mod/quiz:view', $context);
 
 // Course Acknowledgement Check.
 global $DB, $USER;
-
+/*
 // Skip for admins/teachers.
 if (!has_capability('mod/quiz:manage', $context)) {
 
@@ -69,18 +69,36 @@ if (!has_capability('mod/quiz:manage', $context)) {
 
     if (!$ackexists) {
 
-        redirect(
-            new moodle_url(
-                '/local/courseack/index.php',
-                [
-                    'courseid' => $course->id
-                ]
-            ),
-            'Please complete course acknowledgement first.'
-        );
+       redirect(
+    new moodle_url(
+        '/local/courseack/index.php',
+        [
+            'courseid' => $course->id,
+            'returnurl' => urlencode(
+    (new moodle_url(
+        '/mod/quiz/view.php',
+        ['id' => $cm->id]
+    ))->out(false)
+)
+        ]
+    ),
+    'Please complete course acknowledgement first.'
+);
     }
 }
+*/
+$ackexists = $DB->record_exists(
+    'course_acknowledgements',
+    [
+        'userid' => $USER->id,
+        'courseid' => $course->id
+    ]
+);
 
+$showackmodal = (
+    !has_capability('mod/quiz:manage', $context)
+    && !$ackexists
+);
 // Cache some other capabilities we use several times.
 $canattempt = has_capability('mod/quiz:attempt', $context);
 $canreviewmine = has_capability('mod/quiz:reviewmyattempts', $context);
@@ -313,5 +331,57 @@ if (isguestuser()) {
 } else {
     echo $output->view_page($course, $quiz, $cm, $context, $viewobj);
 }
+if ($showackmodal) {
 
+echo '
+
+<div id="ack-overlay">
+
+<div class="ack-modal">
+
+<iframe
+src="'.$CFG->wwwroot.'/local/courseack/index.php?courseid='.$course->id.'&returnurl='.
+urlencode(
+(new moodle_url(
+"/mod/quiz/view.php",
+["id"=>$cm->id]
+))->out(false)
+).'"
+style="width:100%;height:700px;border:none;overflow:hidden;">
+</iframe>
+
+</div>
+
+</div>
+
+<style>
+
+#ack-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+z-index:99999;
+
+display:flex;
+justify-content:center;
+align-items:center;
+backdrop-filter:blur(3px);
+}
+
+.ack-modal{
+width:900px;
+max-width:95%;
+height:700px;
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+</style>
+
+';
+}
 echo $OUTPUT->footer();
